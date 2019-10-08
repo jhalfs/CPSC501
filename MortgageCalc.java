@@ -29,7 +29,13 @@ public class MortgageCalc{
 		int principal=view.getPrincipal();
 		double interestRate=view.getInterestRate();
 		
-		mortgage.calculateMortgageValues(amortization, principal, interestRate);
+		mortgage.calculatePeriodicBlendedPayment(amortization, principal, interestRate);
+		mortgage.calculateTotalInterest(amortization, interestRate);
+		mortgage.calculateTotalWithPrincipal(principal);
+		mortgage.calculateIpRatio(principal, interestRate);
+		mortgage.calculateaAvgInterestPerYear(interestRate, amortization, principal);
+		mortgage.calculateAvgInterestPerMonth();
+		mortgage.calculateAmortizationYears(amortization);
 		
 		view.setPeriodicBlendedPayment(mortgage.getPeriodicBlendedPayment());
 		view.setTotalInterest(mortgage.getTotalInterest());
