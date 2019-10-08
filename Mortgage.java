@@ -39,7 +39,7 @@ public class Mortgage {
 		totalWithPrincipal=totalInterest+principal;
 		interestPrincipalRatio=interestRate/principal;
 		avgInterestPerYear=((interestRate*principal)/amortization)*12;
-		avgInterestPerMonth=avgIntYear/12;
+		avgInterestPerMonth=avgInterestPerYear/12;
 		amortizationYears=amortization/12;
 	}
 
@@ -48,48 +48,48 @@ public class Mortgage {
 	 * @return It returns the periodic blended payment
 	 */
 	public double getPeriodicBlendedPayment() {
-		return periodicBlended;
+		return periodicBlendedPayment;
 	}
 	/**
 	 * This method returns the previously calculated value of the total interest
 	 * @return It returns the total interest
 	 */
 	public double getTotalInterest() {
-		return totalInt;
+		return totalInterest;
 	}
 	/**
 	 * This method returns the total interest combined with the principal
 	 * @return It returns the total interest with the principal
 	 */
 	public double getTotalWithPrincipal() {
-		return totalWPrinc;
+		return totalWithPrincipal;
 	}
 	/**
 	 * This method returns the interest to principal ratio
 	 * @return It returns the interest to principal ratio
 	 */
 	public double getIpRatio() {
-		return ipRat;
+		return interestPrincipalRatio;
 	}
 	/**
 	 * This method returns the average interest per year
 	 * @return It returns the average interest per year
 	 */
 	public double getAvgInterestPerYear() {
-		return avgIntYear;
+		return avgInterestPerYear;
 	}
 	/**
 	 * This method returns the average interest per month
 	 * @return It returns the average interest per month
 	 */
 	public double getAvgInterestPerMonth() {
-		return avgIntMonth;
+		return avgInterestPerMonth;
 	}
 	/**
 	 * This method returns the number of payments in years rather than months
 	 * @return It returns the number of payments in years rather than months 
 	 */
 	public double getAmortizationYears() {
-		return amortYears;
+		return amortizationYears;
 	}
 }
