@@ -1,4 +1,5 @@
 
+
 import java.awt.event.ActionListener;
 import java.awt.event.WindowListener;
 
@@ -18,12 +19,8 @@ public class Mortgage {
 	private double avgInterestPerYear;
 	private double avgInterestPerMonth;
 	private double amortizationYears;
-	/**
-	 * These variables are used in calculating the periodic blended payment.
-	 */
-	public double i;
-	public double l;
-
+	private double tempVariableA;
+	private double tempVariableB;
 
 	/**
 	 * This method calculates the periodic blended payment.
@@ -32,9 +29,16 @@ public class Mortgage {
 	 * @param interestRate The rate of interest used to calculate the blended payment
 	 */
 	public void calculatePeriodicBlendedPayment(int amortization, int principal, double interestRate){
-		i= java.lang.Math.pow(((interestRate/2)+1),(2/amortization))-1;
-		l=java.lang.Math.pow((i+1), (-amortization));
-		periodicBlendedPayment=((principal*i)/(1-l));
+		tempVariableA = tempVariableCalculationA(interestRate, amortization);
+		tempVariableB = tempVariableCalculationB(tempVariableA, amortization);
+		System.out.println(tempVariableA + "-" + tempVariableB);
+		periodicBlendedPayment=((principal*tempVariableA)/(1-tempVariableB));
+	}
+	public double tempVariableCalculationA(double interestRate, int amortization){
+		return java.lang.Math.pow(((interestRate/2)+1),(2/amortization))-1;
+	}
+	public double tempVariableCalculationB(double tempVariableA, int amortization){
+		return java.lang.Math.pow((tempVariableA + 1), (-amortization));
 	}
 	/**
 	 * This method calculates the total interest paid 
@@ -129,5 +133,13 @@ public class Mortgage {
 	 */
 	public double getAmortizationYears() {
 		return amortizationYears;
+	}
+	//Added methods so I can test the Temp as Query refactoring
+	public double getTempVariableA(){
+		return tempVariableA;
+	}
+	
+	public double getTempVariableB(){
+		return tempVariableB;
 	}
 }

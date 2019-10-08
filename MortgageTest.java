@@ -19,6 +19,8 @@ public class MortgageTest {
 	double expAvgInterestPerYear = 12.0;
 	double expAvgInterestPerMonth = 1.0;
 	double expAmortizationYears = 0.0;
+	double expTempVariableA = 1.25;
+	double expTempVariableB = 0.4444444;
 	
 	//Values to be received from the Mortgage class
 	double actualPeriodicBlended;
@@ -28,12 +30,23 @@ public class MortgageTest {
 	double actualAvgInterestPerYear;
 	double actualAvgInterestPerMonth;
 	double actualAmortizationYears;
+	double actualTempVariableA;
+	double actualTempVariableB;
 	
 	//Now modified to fit the second refactoring I did
 	//Still uses the same assertions as they cover all the variables we need to check
 	@Test
 	public void testVariables(){
 		
+		testMortgage.calculatePeriodicBlendedPayment(inputAmortization, inputPrincipal, inputInterestRate);
+		
+		actualTempVariableA = testMortgage.getTempVariableA();
+		actualTempVariableB = testMortgage.getTempVariableB();
+		
+		assertEquals(expTempVariableA, actualTempVariableA, 0.00001);
+		assertEquals(expTempVariableB, actualTempVariableB, 0.00001);
+		
+		/*
 		//Initialize the variables within the Mortgage class
 		testMortgage.calculatePeriodicBlendedPayment(inputAmortization, inputPrincipal, inputInterestRate);
 		testMortgage.calculateTotalInterest(inputAmortization, inputInterestRate);
@@ -61,8 +74,8 @@ public class MortgageTest {
 		assertEquals(expAvgInterestPerYear, actualAvgInterestPerYear, 0.00001);
 		assertEquals(expAvgInterestPerMonth, actualAvgInterestPerMonth, 0.00001);
 		assertEquals(expAmortizationYears, actualAmortizationYears, 0.00001);
+		*/
 	}
-	
 	
 
 }
