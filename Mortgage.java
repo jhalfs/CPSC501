@@ -31,7 +31,6 @@ public class Mortgage {
 	public void calculatePeriodicBlendedPayment(int amortization, int principal, double interestRate){
 		tempVariableA = tempVariableCalculationA(interestRate, amortization);
 		tempVariableB = tempVariableCalculationB(tempVariableA, amortization);
-		System.out.println(tempVariableA + "-" + tempVariableB);
 		periodicBlendedPayment=((principal*tempVariableA)/(1-tempVariableB));
 	}
 	public double tempVariableCalculationA(double interestRate, int amortization){
@@ -142,4 +141,11 @@ public class Mortgage {
 	public double getTempVariableB(){
 		return tempVariableB;
 	}
+	
+	public static void main(String[] args){
+		MortgageGUI view=new MortgageGUI();
+		Mortgage mortgage=new Mortgage();
+		MortgageCalc myController=new MortgageCalc(view, mortgage);
+	}
+
 }
