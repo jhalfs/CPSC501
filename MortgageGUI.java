@@ -9,7 +9,10 @@ import javax.swing.*;
  * @author Julien
  */
 
-public class MortgageGUI extends JFrame{
+public class MortgageGUI{
+	
+	private final JFrame superClass = new JFrame("Mortgage Calculator Application");
+	
 	/**
 	 * These variables are used to set the values of whatever they apply to
 	 */
@@ -90,7 +93,7 @@ public class MortgageGUI extends JFrame{
 	 * @param listener This parameter is the name of the listener added
 	 */
 	public void setWindowListener(WindowListener listener){
-		this.addWindowListener(listener);
+		superClass.addWindowListener(listener);
 	}
 	/**
 	 * This method sets the value of the periodic blended payment as  string and displays it on the window
@@ -161,17 +164,13 @@ public class MortgageGUI extends JFrame{
 	public MortgageGUI()
 	{
 		/**
-		 * Sets the name of the window
-		 */
-		super("Mortgage Calculator Application");
-		/**
 		 * Allows the window to be closed
 		 */
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		superClass.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		/**
 		 * Sets the size of the window
 		 */
-		setSize(800, 200);
+		superClass.setSize(800, 200);
 		/**
 		 * These create all the text fields on the panel
 		 */
@@ -206,7 +205,7 @@ public class MortgageGUI extends JFrame{
 		 * This creates the panel and sets the layout for it
 		 */
 		panel=new JPanel();
-		add(panel);
+		superClass.add(panel);
 		/**
 		 * These add all the different elements in the correct order on the panel 
 		 */
@@ -234,7 +233,7 @@ public class MortgageGUI extends JFrame{
 		/**
 		 * This lets the panel be viewed by the user
 		 */
-		setVisible(true);
+		superClass.setVisible(true);
 	}
 
 }

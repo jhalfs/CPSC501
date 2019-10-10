@@ -46,7 +46,7 @@ public class MortgageTest {
 		assertEquals(expTempVariableA, actualTempVariableA, 0.00001);
 		assertEquals(expTempVariableB, actualTempVariableB, 0.00001);
 		
-		/*
+		
 		//Initialize the variables within the Mortgage class
 		testMortgage.calculatePeriodicBlendedPayment(inputAmortization, inputPrincipal, inputInterestRate);
 		testMortgage.calculateTotalInterest(inputAmortization, inputInterestRate);
@@ -74,7 +74,7 @@ public class MortgageTest {
 		assertEquals(expAvgInterestPerYear, actualAvgInterestPerYear, 0.00001);
 		assertEquals(expAvgInterestPerMonth, actualAvgInterestPerMonth, 0.00001);
 		assertEquals(expAmortizationYears, actualAmortizationYears, 0.00001);
-		*/
+		
 	}
 	
 
